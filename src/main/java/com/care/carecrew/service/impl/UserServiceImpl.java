@@ -1,6 +1,7 @@
 package com.care.carecrew.service.impl;
 
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,11 +20,11 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User saveData(User user) {
-		 if (user.getName().isBlank() || !user.getName().matches("[a-zA-Z_]+")) {
+		 if (Objects.isNull(user.getName()) || !user.getName().matches("[a-zA-Z_]+")) {
 			throw new NotAcceptableStatusException("Not a valid user");
 		}
 
-		else if (user.getPhoneNumber().isBlank()) {
+		else if (Objects.isNull(user.getPhoneNumber())) {
 			throw new NotAcceptableStatusException("Please enter mobile number");
 		} else if (!user.getPhoneNumber().matches("[0-9]+")) {
 			throw new NotAcceptableStatusException("Not a valid mobile number");
