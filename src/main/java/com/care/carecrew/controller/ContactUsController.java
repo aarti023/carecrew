@@ -15,6 +15,7 @@ import com.care.carecrew.dto.ResponseDto;
 import com.care.carecrew.model.ContactUs;
 import com.care.carecrew.service.impl.ContactUsServiceImpl;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.log4j.Log4j2;
 
 @RestController
@@ -26,6 +27,7 @@ public class ContactUsController {
 	private ContactUsServiceImpl contactUsServiceImpl;
 
 	@PostMapping("/save")
+	@ApiOperation("save contact form")
 	public ResponseDto<ContactUs> saveContactForm(@Valid @RequestBody ContactUs contactUs) {
 		try {
 			log.info("contact {}", contactUs);
@@ -38,6 +40,7 @@ public class ContactUsController {
 	}
 	
 	@GetMapping("/getDetails")
+	@ApiOperation("get all contact form details ")
 	public ResponseDto<List<ContactUs>> getDetails (){
 		try {
 			log.info("contact {}");

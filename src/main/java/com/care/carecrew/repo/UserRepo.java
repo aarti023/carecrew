@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.care.carecrew.model.User;
 
 @Repository
-public interface CarecrewRepo extends JpaRepository<User, Long> {
+public interface UserRepo extends JpaRepository<User, Long> {
 	
 }

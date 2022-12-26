@@ -14,6 +14,7 @@ import com.care.carecrew.dto.ResponseDto;
 import com.care.carecrew.model.CityEntity;
 import com.care.carecrew.service.CityService;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.log4j.Log4j2;
 
 @RestController
@@ -39,6 +40,7 @@ public class CitiesController {
 //	}
 
 	@PostMapping(value = "/create")
+	@ApiOperation("create city")
 	public ResponseDto<CityEntity> create(@RequestBody CityEntity cityEntity) {
 
 		Thread.currentThread().setName(UUID.randomUUID().toString());
@@ -52,6 +54,7 @@ public class CitiesController {
 	}
 
 	@GetMapping("/get/cities/")
+	@ApiOperation("get all cities")
 	public ResponseDto<List<CityEntity>> getCities() {
 		try {
 			log.info("user {}");
