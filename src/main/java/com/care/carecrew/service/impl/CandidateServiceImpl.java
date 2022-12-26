@@ -1,6 +1,7 @@
 package com.care.carecrew.service.impl;
 
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public class CandidateServiceImpl implements CandidateService {
 
 	@Override
 	public CandidateEntity saveCandidate(CandidateEntity candidateEntity) {
-		if (candidateEntity.getPhoneNumber().isBlank()) {
+		if (Objects.isNull(candidateEntity.getPhoneNumber())) {
 			throw new NotAcceptableStatusException("Please enter mobile number");
 		} else if (!candidateEntity.getPhoneNumber().matches("[0-9]+")) {
 			throw new NotAcceptableStatusException("Not a valid mobile number");
