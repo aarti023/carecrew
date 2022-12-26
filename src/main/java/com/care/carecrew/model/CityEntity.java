@@ -4,6 +4,8 @@ package com.care.carecrew.model;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -29,6 +31,5 @@ public class CityEntity {
 	@Column(name = "city_name")
 	private String cityName;
 	
-	private String cite;
 
 }

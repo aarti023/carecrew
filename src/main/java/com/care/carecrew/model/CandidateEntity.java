@@ -26,43 +26,26 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "user")
-@Entity
-public class User {
-
+@Table(name = "candidate")
+@Entity(name = "candidate")
+public class CandidateEntity {
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+//	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
 	private Long id;
 
 	@Column(name = "name", columnDefinition = "varchar(100)")
 	private String name;
-
-	@Column(name = "email", columnDefinition = "varchar(100)")
-	private String email;
-
+	
 	@Column(name = "phone_number", columnDefinition = "varchar(15)")
 	private String phoneNumber;
-
-	@Column(name = "address", columnDefinition = "varchar(256)")
-	private String address;
-
-	@Column(name = "locality")
-	@Embedded
-	private LocalityEntity locality;
-
+	
 	@Column(name = "cities")
 	@Embedded
 	private CityEntity cities;
-
-	@Column(name = "working_hours", columnDefinition = "varchar(100)")
-	private String workingHours;
-
-	@Column(name = "message", columnDefinition = "varchar(256)")
-	private String message;
-
+	
 	@Column(name = "created_at", columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
 	@DateTimeFormat(iso = ISO.DATE, fallbackPatterns = { "dd.MM.yyyy" })
 	private Date createdAt;
-
 }

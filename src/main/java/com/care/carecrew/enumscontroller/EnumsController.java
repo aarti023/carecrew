@@ -1,17 +1,7 @@
 package com.care.carecrew.enumscontroller;
 
-import java.util.List;
-
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.care.carecrew.adapter.DropDownAdapter;
-import com.care.carecrew.dto.ResponseDto;
-import com.care.carecrew.enums.Service;
-import com.care.carecrew.generic.dto.EnumListing;
-
-import io.swagger.annotations.ApiOperation;
 
 @RestController
 @RequestMapping("/enums")

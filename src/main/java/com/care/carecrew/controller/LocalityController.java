@@ -14,6 +14,7 @@ import com.care.carecrew.dto.ResponseDto;
 import com.care.carecrew.model.LocalityEntity;
 import com.care.carecrew.service.LocalityService;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.log4j.Log4j2;
 
 @RestController
@@ -25,6 +26,7 @@ public class LocalityController {
 	private LocalityService localityService;
 	
 	@PostMapping(value = "/create")
+	@ApiOperation("create society")
 	public ResponseDto<LocalityEntity> create(@RequestBody LocalityEntity localityEntity) {
 
 		Thread.currentThread().setName(UUID.randomUUID().toString());
@@ -38,11 +40,12 @@ public class LocalityController {
 	}
 
 	@GetMapping("/get/societies/")
-	public ResponseDto<List<LocalityEntity>> getCities() {
+	@ApiOperation("get all society")
+	public ResponseDto<List<LocalityEntity>> getSociety() {
 		try {
 			log.info("user {}");
 			List<LocalityEntity> response = localityService.getAllLocalities();
-			return ResponseDto.success("All User details get successfully", response);
+			return ResponseDto.success("Get all Society successfully", response);
 		} catch (Exception errorMessage) {
 			log.error("Exception occurred while getting the data is {}", errorMessage);
 			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);

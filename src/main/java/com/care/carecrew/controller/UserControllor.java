@@ -16,6 +16,7 @@ import com.care.carecrew.dto.ResponseDto;
 import com.care.carecrew.model.User;
 import com.care.carecrew.service.impl.UserServiceImpl;
 
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.log4j.Log4j2;
 
 @RestController
@@ -27,6 +28,7 @@ public class UserControllor {
 	private UserServiceImpl carecrewServiceImpl;
 
 	@PostMapping("/save")
+	@ApiOperation("save user details")
 	public ResponseDto<User> saveDetails(@Valid @RequestBody User user) {
 		try {
 			log.info("user {}", user);
@@ -52,6 +54,7 @@ public class UserControllor {
 //	}
 
 	@GetMapping("/get/data/{id}")
+	@ApiOperation("get detials by id")
 	public ResponseDto<User> getDetails(@PathVariable("id") Long id) {
 		try {
 			log.info("user {}", id);
@@ -64,6 +67,7 @@ public class UserControllor {
 	}
 
 	@GetMapping("/get/data/")
+	@ApiOperation("get all details")
 	public ResponseDto<List<User>> getAllDetails() {
 		try {
 			log.info("user {}");

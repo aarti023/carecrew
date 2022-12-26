@@ -8,14 +8,14 @@ import org.springframework.web.server.NotAcceptableStatusException;
 
 import com.care.carecrew.exception.ResourceNotFoundException;
 import com.care.carecrew.model.User;
-import com.care.carecrew.repo.CarecrewRepo;
+import com.care.carecrew.repo.UserRepo;
 import com.care.carecrew.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
 
 	@Autowired
-	private CarecrewRepo carecrewRepo;
+	private UserRepo carecrewRepo;
 
 	@Override
 	public User saveData(User user) {
