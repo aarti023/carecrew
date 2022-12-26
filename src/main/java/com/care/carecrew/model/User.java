@@ -64,17 +64,5 @@ public class User {
 	@Column(name = "created_at", columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
 	@DateTimeFormat(iso = ISO.DATE, fallbackPatterns = { "dd.MM.yyyy" })
 	private Date createdAt;
-	
-//	@Enumerated(EnumType.STRING)
-//	@Column(name = "service")
-//	private Service service;
-
-//	@Enumerated(EnumType.STRING)
-//	@Column(name = "cities")
-//	private Cities cities;
-
-//	@Enumerated(EnumType.STRING)
-//	@Column(name = "locality")
-//	private Locality locality;
 
 }
