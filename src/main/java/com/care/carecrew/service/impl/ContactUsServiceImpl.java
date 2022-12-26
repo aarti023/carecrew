@@ -1,6 +1,7 @@
 package com.care.carecrew.service.impl;
 
 import java.util.List;
+import java.util.Objects;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,7 +23,7 @@ public class ContactUsServiceImpl implements ContactUsService {
 			throw new NotAcceptableStatusException("Not a valid user");
 		}
 
-		else if (contactUs.getPhoneNumber().isBlank()) {
+		else if (Objects.isNull(contactUs.getPhoneNumber())) {
 			throw new NotAcceptableStatusException("Please enter mobile number");
 		} else if (!contactUs.getPhoneNumber().matches("[0-9]+")) {
 			throw new NotAcceptableStatusException("Not a valid mobile number");
