@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.care.carecrew.dto.ContactUsDto;
 import com.care.carecrew.dto.ResponseDto;
-import com.care.carecrew.dto.UserDto;
 import com.care.carecrew.model.ContactUs;
-import com.care.carecrew.model.User;
 import com.care.carecrew.service.impl.ContactUsServiceImpl;
 
 import io.swagger.annotations.ApiOperation;
@@ -44,11 +42,10 @@ public class ContactUsController {
 			return ResponseDto.failure("Exception occurred while saving the contact details " + e);
 		}
 	}
-	
-	
+
 	@GetMapping("/getDetails")
 	@ApiOperation("get all contact form details ")
-	public ResponseDto<List<ContactUs>> getDetails (){
+	public ResponseDto<List<ContactUs>> getDetails() {
 		try {
 			log.info("contact {}");
 			List<ContactUs> response = contactUsServiceImpl.getAllContactform();
@@ -57,7 +54,7 @@ public class ContactUsController {
 			log.error("Exception while getting contact detials ", e);
 			return ResponseDto.failure("Exception occurred while getting the contact details " + e);
 		}
-		
+
 	}
-	
+
 }

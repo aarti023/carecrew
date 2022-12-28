@@ -2,7 +2,8 @@ package com.care.carecrew.service.impl;
 
 import java.util.List;
 import java.util.Objects;
-
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,9 +14,12 @@ import com.care.carecrew.model.CandidateEntity;
 import com.care.carecrew.repo.CandidateRepo;
 import com.care.carecrew.service.CandidateService;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 @Service
 public class CandidateServiceImpl implements CandidateService {
-
+	
 	@Autowired
 	private CandidateRepo candidateRepo;
 
@@ -30,6 +34,7 @@ public class CandidateServiceImpl implements CandidateService {
 			throw new NotAcceptableStatusException("Not a valid mobile number");
 		}
 		candidateRepo.save(candidate);
+		log.info("Data of this candidate is "+candidate.getName()+" saved");
 		return candidate;
 	}
 

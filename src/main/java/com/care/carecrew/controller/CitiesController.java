@@ -34,8 +34,6 @@ public class CitiesController {
 	@ApiOperation("create city")
 	public ResponseDto<CityEntity> create(@RequestBody CityDto cityDto) {
 
-		Thread.currentThread().setName(UUID.randomUUID().toString());
-
 		log.info("Create City [" + cityDto + "]");
 
 		CityEntity response = cityService.save(cityDto);

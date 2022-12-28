@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.care.carecrew.dto.LocalityDto;
@@ -27,9 +26,9 @@ import lombok.extern.log4j.Log4j2;
 @CrossOrigin(origins = "*")
 public class LocalityController {
 
-	@Autowired 
+	@Autowired
 	private LocalityService localityService;
-	
+
 	@PostMapping(value = "/create")
 	@ApiOperation("create society")
 	public ResponseDto<LocalityEntity> create(@RequestBody LocalityDto localityDto) {
@@ -37,7 +36,6 @@ public class LocalityController {
 		Thread.currentThread().setName(UUID.randomUUID().toString());
 
 		log.info("Create society [" + localityDto + "]");
-
 		LocalityEntity response = localityService.save(localityDto);
 
 		return ResponseDto.success("society Created Successfully", response);
@@ -48,7 +46,7 @@ public class LocalityController {
 	@ApiOperation("get all society")
 	public ResponseDto<List<LocalityEntity>> getSociety() {
 		try {
-			log.info("user {}");
+			log.info("locality {}");
 			List<LocalityEntity> response = localityService.getAllLocalities();
 			return ResponseDto.success("Get all Society successfully", response);
 		} catch (Exception errorMessage) {

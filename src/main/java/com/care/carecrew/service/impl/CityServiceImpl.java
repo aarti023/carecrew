@@ -12,6 +12,9 @@ import com.care.carecrew.model.CityEntity;
 import com.care.carecrew.repo.CitiesRepo;
 import com.care.carecrew.service.CityService;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 @Service
 public class CityServiceImpl implements CityService {
 
@@ -24,6 +27,8 @@ public class CityServiceImpl implements CityService {
 		BeanUtils.copyProperties(cityDto, city);
 
 		citiesRepo.save(city);
+		log.info("Created city with this  id: "+ city.getId());
+
 		return city;
 	}
 
@@ -33,11 +38,5 @@ public class CityServiceImpl implements CityService {
 		return citiesRepo.findAll();
 	}
 
-	@Override
-	public CityEntity saveCities(CityEntity cityEntity) {
-		Optional<CityEntity> care = citiesRepo.findById(cityEntity.getId());
-		CityEntity save = citiesRepo.save(cityEntity);
-		return save;
-	}
 
 }

@@ -15,29 +15,15 @@ import com.care.carecrew.model.ContactUs;
 import com.care.carecrew.repo.ContactUsRepo;
 import com.care.carecrew.service.ContactUsService;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 @Service
 public class ContactUsServiceImpl implements ContactUsService {
 
 	@Autowired
 	private ContactUsRepo contactUsRepo;
 
-//	@Override
-//	public ContactUs saveContactform(ContactUs contactUs) {
-//		if (!contactUs.getName().matches("[a-zA-Z_]+")) {
-//			throw new NotAcceptableStatusException("Not a valid user");
-//		}
-//
-//		else if (Objects.isNull(contactUs.getPhoneNumber())) {
-//			throw new NotAcceptableStatusException("Please enter mobile number");
-//		} else if (!contactUs.getPhoneNumber().matches("[0-9]+")) {
-//			throw new NotAcceptableStatusException("Not a valid mobile number");
-//		}
-//
-//		ContactUs save = contactUsRepo.save(contactUs);
-//		return save;
-//
-//	}
-	
 	@Override
 	public ContactUs save(ContactUsDto contactUsDto) {
 		ContactUs contact = new ContactUs();
@@ -49,6 +35,8 @@ public class ContactUsServiceImpl implements ContactUsService {
 			throw new NotAcceptableStatusException("Not a valid mobile number");
 		}
 		contactUsRepo.save(contact);
+		log.info("Data of user on contact page: " + contact.getName() + " is saved");
+		
 		return contact;
 	}
 
