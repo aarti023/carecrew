@@ -13,8 +13,9 @@ public class UserAdapter {
 				.address(userDto.getAddress()).message(userDto.getMessage())
 				.workingHours(userDto.getWorkingHours()).locality(userDto.getLocality())
 				.createdAt(userDto.getCreatedAt())
+//				.services(userDto.getServices())
 //				.cities(userDto.getCities())
-//				.service(userDto.getService())
+				
 				.build();
 
 	}
@@ -27,6 +28,7 @@ public class UserAdapter {
 				.message(user.getMessage())
 				.workingHours(user.getWorkingHours())
 				.createdAt(user.getCreatedAt())
+//				.services(user.getServices())
 //				.locality(user.getLocality())
 				.build();
 	}

@@ -3,15 +3,16 @@ package com.care.carecrew.service.impl;
 import java.util.List;
 import java.util.Objects;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.NotAcceptableStatusException;
 
+import com.care.carecrew.dto.UserDto;
 import com.care.carecrew.exception.ResourceNotFoundException;
 import com.care.carecrew.model.User;
 import com.care.carecrew.repo.UserRepo;
 import com.care.carecrew.service.UserService;
-
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -20,29 +21,19 @@ public class UserServiceImpl implements UserService {
 	private UserRepo carecrewRepo;
 
 	@Override
-	public User saveData(User user) {
-
-		if (Objects.isNull(user.getName()) || !user.getName().matches("[a-zA-Z_]+")){
-			throw new NotAcceptableStatusException("Not a valid user");
-		}
-
-		else if (Objects.isNull(user.getPhoneNumber())) {
+	public User save(UserDto userDto) {
+		User user = new User();		
+		BeanUtils.copyProperties(userDto, user);
+		
+		if (Objects.isNull(user.getPhoneNumber())) {
 			throw new NotAcceptableStatusException("Please enter mobile number");
-		} else if (!user.getPhoneNumber().matches("[0-9]+")) {
+		} 
+		else if (!user.getPhoneNumber().matches("[0-9]+")) {
 			throw new NotAcceptableStatusException("Not a valid mobile number");
 		}
-
-		User save = carecrewRepo.save(user);
-		return save;
+		carecrewRepo.save(user);
+		return user;
 	}
-
-//	@Override
-//	public User saveData(UserDto userDto) {
-//		User user = carecrewRepo.findByUserId(userDto.getUserId());
-//		User save = carecrewRepo.save(user);
-//		 return save;
-//		
-//	}
 
 	@Override
 	public User getSavedDataById(Long id) {
@@ -52,9 +43,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public List<User> getAllUserDetails() {
-		
-		if(carecrewRepo.findAll() == null) {
-			return  null;
+
+		if (carecrewRepo.findAll() == null) {
+			return null;
 		}
 		return carecrewRepo.findAll();
 	}

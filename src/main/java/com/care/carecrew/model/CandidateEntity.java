@@ -1,5 +1,6 @@
 package com.care.carecrew.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -41,11 +42,12 @@ public class CandidateEntity {
 	@Column(name = "phone_number", columnDefinition = "varchar(15)")
 	private String phoneNumber;
 	
-	@Column(name = "cities")
-	@Embedded
-	private CityEntity cities;
+	@Column(name = "city")
+	private String city;
 	
 	@Column(name = "created_at", columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
 	@DateTimeFormat(iso = ISO.DATE, fallbackPatterns = { "dd.MM.yyyy" })
 	private Date createdAt;
+	
+	private ArrayList<String> services;
 }

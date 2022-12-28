@@ -1,9 +1,7 @@
 package com.care.carecrew.dto;
 
+import java.util.ArrayList;
 import java.util.Date;
-
-import com.care.carecrew.model.CityEntity;
-import com.care.carecrew.model.LocalityEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -20,8 +18,6 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class UserDto {
 
-//	private Long id;
-
 	private String name;
 
 	private String email;
@@ -34,12 +30,11 @@ public class UserDto {
 
 	private String workingHours;
 
-	private CityEntity cities;
+	private String city;
 	
-	private LocalityEntity locality;
-
-	private Date createdAt;
-
-//	private Service service;
+	private ArrayList<String> service;
 	
+	private String locality;
+
+	private Date createdAt;	
 }

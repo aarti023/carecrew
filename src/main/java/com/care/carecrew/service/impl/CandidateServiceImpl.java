@@ -3,10 +3,12 @@ package com.care.carecrew.service.impl;
 import java.util.List;
 import java.util.Objects;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.NotAcceptableStatusException;
 
+import com.care.carecrew.dto.CandidateDto;
 import com.care.carecrew.model.CandidateEntity;
 import com.care.carecrew.repo.CandidateRepo;
 import com.care.carecrew.service.CandidateService;
@@ -18,18 +20,17 @@ public class CandidateServiceImpl implements CandidateService {
 	private CandidateRepo candidateRepo;
 
 	@Override
-	public CandidateEntity saveCandidate(CandidateEntity candidateEntity) {
+	public CandidateEntity save(CandidateDto candidateDto) {
+		CandidateEntity candidate = new CandidateEntity();
+		BeanUtils.copyProperties(candidateDto, candidate);
 
-		if (!candidateEntity.getName().matches("[a-zA-Z_]+")) {
-			throw new NotAcceptableStatusException("Not a valid user");
-		} else if (Objects.isNull(candidateEntity.getPhoneNumber())) {
+		if (Objects.isNull(candidate.getPhoneNumber())) {
 			throw new NotAcceptableStatusException("Please enter mobile number");
-		} else if (!candidateEntity.getPhoneNumber().matches("[0-9]+")) {
+		} else if (!candidate.getPhoneNumber().matches("[0-9]+")) {
 			throw new NotAcceptableStatusException("Not a valid mobile number");
 		}
-
-		CandidateEntity save = candidateRepo.save(candidateEntity);
-		return save;
+		candidateRepo.save(candidate);
+		return candidate;
 	}
 
 	@Override
