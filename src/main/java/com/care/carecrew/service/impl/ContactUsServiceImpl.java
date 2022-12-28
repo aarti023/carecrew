@@ -42,7 +42,7 @@ public class ContactUsServiceImpl implements ContactUsService {
 	public ContactUs save(ContactUsDto contactUsDto) {
 		ContactUs contact = new ContactUs();
 		BeanUtils.copyProperties(contactUsDto, contact);
-
+    
 		if (Objects.isNull(contact.getPhoneNumber())) {
 			throw new NotAcceptableStatusException("Please enter mobile number");
 		} else if (!contact.getPhoneNumber().matches("[0-9]+")) {
