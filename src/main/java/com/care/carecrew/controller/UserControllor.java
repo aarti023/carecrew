@@ -70,19 +70,6 @@ public class UserControllor {
 			log.error("Exception occurred while getting the data is {}", errorMessage);
 			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
 		}
-
 	}
 
-//	@PutMapping("/update/{id}")
-//	@ApiOperation("Update Customer Details")
-//	public ResponseDto<User> update(@PathVariable("id")@RequestBody User user) {
-//		try {
-//			User response = carecrewServiceImpl.update(id, user);
-//			return ResponseDto.success("Bank account Details saved successfully", response);
-//		} catch (Exception errorMessage) {
-//			log.error("Exception occurred while saving the data is {}", errorMessage);
-//			return ResponseDto.failure("Exception occurred while saving the data " + errorMessage);
-//		}
-//
-//	}
 }

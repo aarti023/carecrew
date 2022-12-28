@@ -44,10 +44,8 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public List<User> getAllUserDetails() {
 
-		if (carecrewRepo.findAll() == null) {
-			return null;
-		}
 		return carecrewRepo.findAll();
 	}
+
 
 }

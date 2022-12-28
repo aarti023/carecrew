@@ -3,7 +3,6 @@ package com.care.carecrew.model;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,8 +11,6 @@ import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
-
-import com.care.carecrew.dto.CityDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -49,11 +46,8 @@ public class ContactUs {
 	@Column(name = "address", columnDefinition = "varchar(256)")
 	private String address;
 
-	@Column(name = "locality")
-	private String locality;
-	
-	@Column(name = "cities")
-	private String cities;
+	@Column(name = "city")
+	private String city;
 	
 	@Column(name = "working_hours", columnDefinition = "varchar(100)")
 	private String workingHours;
@@ -64,14 +58,5 @@ public class ContactUs {
 	@Column(name = "created_at", columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
 	@DateTimeFormat(iso = ISO.DATE, fallbackPatterns = { "dd.MM.yyyy" })
 	private Date createdAt;
-	
-
-//	@Enumerated(EnumType.STRING)
-//	@Column(name = "cities")
-//	private Cities cities;
-//
-//	@Enumerated(EnumType.STRING)
-//	@Column(name = "locality")
-//	private Locality locality;
 	
 }
