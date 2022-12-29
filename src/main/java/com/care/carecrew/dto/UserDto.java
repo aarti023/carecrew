@@ -31,10 +31,14 @@ public class UserDto {
 	private String workingHours;
 
 	private String city;
-	
+
 	private ArrayList<String> service;
-	
+
 	private String locality;
 
-	private Date createdAt;	
+	private Date createdAt;
+
+	private String localityOthers;
+
+	private String cityOthers;
 }

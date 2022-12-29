@@ -3,6 +3,8 @@ package com.care.carecrew.dto;
 import java.util.ArrayList;
 import java.util.Date;
 
+import javax.persistence.Column;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,6 +28,8 @@ public class CandidateDto {
 	
 	private ArrayList<String> services;
 	
-	private Date createdAt;
+	private String localityOthers;
+	
+	private String cityOthers;
 
 }

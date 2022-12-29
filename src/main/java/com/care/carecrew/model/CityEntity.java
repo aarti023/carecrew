@@ -32,8 +32,11 @@ public class CityEntity {
 	@Column (name = "id")
 	private Long id;
 	
-	@Column(name = "city_name")
+	@Column(name = "city_name" , columnDefinition = "varchar(100)")
 	private String cityName;
+	
+	@Column(name = "others", columnDefinition = "varchar(100)")
+	private String others;
 	
 
 }

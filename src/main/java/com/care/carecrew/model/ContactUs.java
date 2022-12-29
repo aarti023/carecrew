@@ -59,4 +59,10 @@ public class ContactUs {
 	@DateTimeFormat(iso = ISO.DATE, fallbackPatterns = { "dd.MM.yyyy" })
 	private Date createdAt;
 	
+	@Column(name = "locality_others", columnDefinition = "varchar(100)")
+	private String localityOthers;
+	
+	@Column(name = "city_others", columnDefinition = "varchar(100)")
+	private String cityOthers;
+	
 }

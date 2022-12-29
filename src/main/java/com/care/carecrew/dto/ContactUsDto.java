@@ -9,7 +9,6 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.SuperBuilder;
 
-
 @Setter
 @Getter
 @ToString(callSuper = true)
@@ -17,7 +16,7 @@ import lombok.experimental.SuperBuilder;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ContactUsDto {
-	
+
 	private String name;
 
 	private String email;
@@ -34,4 +33,7 @@ public class ContactUsDto {
 
 	private Date createdAt;
 
+	private String localityOthers;
+
+	private String cityOthers;
 }
