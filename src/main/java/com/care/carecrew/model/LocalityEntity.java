@@ -1,7 +1,6 @@
 package com.care.carecrew.model;
 
 import javax.persistence.Column;
-import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,17 +11,20 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
+import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter
+@ToString(callSuper = true)
+@SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-@Embeddable
 @Table(name = "society")
-@Entity(name = "society")
+@Entity
 public class LocalityEntity {
 	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
 	

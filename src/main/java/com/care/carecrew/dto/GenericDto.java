@@ -1,7 +1,9 @@
 package com.care.carecrew.dto;
 
-import java.util.ArrayList;
 import java.util.Date;
+
+import com.care.carecrew.model.CityEntity;
+import com.care.carecrew.model.LocalityEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -16,16 +18,11 @@ import lombok.experimental.SuperBuilder;
 @SuperBuilder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CandidateDto {
-	
+public class GenericDto {
+
 	private String name;
 	
 	private String phoneNumber;
 	
 	private String city;
-	
-	private ArrayList<String> services;
-	
-	private Date createdAt;
-
 }

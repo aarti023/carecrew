@@ -15,8 +15,6 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 public class LocalityDto {
 
-	private Long id;
-
-	private String society;
+  private String society;
 
 }

@@ -1,9 +1,9 @@
 package com.care.carecrew.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -47,13 +47,11 @@ public class User {
 	@Column(name = "address", columnDefinition = "varchar(256)")
 	private String address;
 
-	@Column(name = "locality")
-	@Embedded
-	private LocalityEntity locality;
-
-	@Column(name = "cities")
-	@Embedded
-	private CityEntity cities;
+	@Column(name = "locality", columnDefinition = "varchar(256)")
+	private String locality;
+	
+	@Column(name = "city", columnDefinition = "varchar(256)")
+	private String city;
 
 	@Column(name = "working_hours", columnDefinition = "varchar(100)")
 	private String workingHours;
@@ -64,5 +62,7 @@ public class User {
 	@Column(name = "created_at", columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
 	@DateTimeFormat(iso = ISO.DATE, fallbackPatterns = { "dd.MM.yyyy" })
 	private Date createdAt;
+	
+	private ArrayList<String> service;
 
 }

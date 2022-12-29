@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -28,7 +30,7 @@ import lombok.experimental.SuperBuilder;
 public class ContactUs {
 	
 	@Id
-//	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
 
@@ -44,15 +46,9 @@ public class ContactUs {
 	@Column(name = "address", columnDefinition = "varchar(256)")
 	private String address;
 
-	@Column(name = "locality")
-	private LocalityEntity locality;
+	@Column(name = "city")
+	private String city;
 	
-	@Column(name = "cities")
-	private CityEntity cities;
-	
-//	@Column(name = "service")
-//	private Service service;
-
 	@Column(name = "working_hours", columnDefinition = "varchar(100)")
 	private String workingHours;
 
@@ -62,14 +58,5 @@ public class ContactUs {
 	@Column(name = "created_at", columnDefinition = "DATETIME DEFAULT CURRENT_TIMESTAMP")
 	@DateTimeFormat(iso = ISO.DATE, fallbackPatterns = { "dd.MM.yyyy" })
 	private Date createdAt;
-	
-
-//	@Enumerated(EnumType.STRING)
-//	@Column(name = "cities")
-//	private Cities cities;
-//
-//	@Enumerated(EnumType.STRING)
-//	@Column(name = "locality")
-//	private Locality locality;
 	
 }
