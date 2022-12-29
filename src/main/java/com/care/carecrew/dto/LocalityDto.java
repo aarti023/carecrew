@@ -16,5 +16,7 @@ import lombok.experimental.SuperBuilder;
 public class LocalityDto {
 
   private String society;
+  
+  private String others;
 
 }

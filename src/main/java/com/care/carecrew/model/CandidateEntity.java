@@ -32,7 +32,7 @@ import lombok.experimental.SuperBuilder;
 public class CandidateEntity {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Long id;
 
@@ -50,4 +50,10 @@ public class CandidateEntity {
 	private Date createdAt;
 	
 	private ArrayList<String> services;
+	
+	@Column(name = "locality_others", columnDefinition = "varchar(100)")
+	private String localityOthers;
+	
+	@Column(name = "city_others", columnDefinition = "varchar(100)")
+	private String cityOthers;
 }

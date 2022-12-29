@@ -1,7 +1,5 @@
 package com.care.carecrew.dto;
 
-import javax.persistence.Embeddable;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,4 +16,6 @@ import lombok.experimental.SuperBuilder;
 public class CityDto {
 	
 	private String cityName;
+	
+	private String others;
 }

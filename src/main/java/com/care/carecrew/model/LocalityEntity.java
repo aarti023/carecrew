@@ -28,6 +28,9 @@ public class LocalityEntity {
 	@Column(name = "id")
 	private Long id;
 	
-	@Column(name = "society")
+	@Column(name = "society", columnDefinition = "varchar(100)")
 	private String society;
+	
+	@Column(name = "others", columnDefinition = "varchar(100)")
+	private String others;
 }

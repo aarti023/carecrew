@@ -64,5 +64,10 @@ public class User {
 	private Date createdAt;
 	
 	private ArrayList<String> service;
-
+	
+	@Column(name = "locality_others", columnDefinition = "varchar(100)")
+	private String localityOthers;
+	
+	@Column(name = "city_others", columnDefinition = "varchar(100)")
+	private String cityOthers;
 }
