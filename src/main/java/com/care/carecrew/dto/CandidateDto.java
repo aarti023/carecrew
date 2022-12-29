@@ -31,5 +31,7 @@ public class CandidateDto {
 	private String localityOthers;
 	
 	private String cityOthers;
+	
+	private Date createdAt; 
 
 }
