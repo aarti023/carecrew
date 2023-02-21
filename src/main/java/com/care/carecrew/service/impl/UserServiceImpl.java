@@ -28,6 +28,7 @@ public class UserServiceImpl implements UserService {
 
 	public User save(UserDto userDto) {
 		User user = new User();
+		String a = "[";
 		BeanUtils.copyProperties(userDto, user);
 
 		if (Objects.isNull(user.getPhoneNumber())) {
@@ -35,6 +36,11 @@ public class UserServiceImpl implements UserService {
 		} else if (!user.getPhoneNumber().matches("[0-9]+")) {
 			throw new NotAcceptableStatusException("Not a valid mobile number");
 		}
+		for(String i : userDto.getService()) {
+			a+=i+",";
+		}
+		a+="]";
+		user.setService(a);
 		carecrewRepo.save(user);
 		log.info("Data of user: " + user.getName() + " is saved");
 		return user;

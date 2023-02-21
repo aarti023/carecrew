@@ -46,18 +46,18 @@ public class UserControllor {
 		}
 	}
 
-	@GetMapping("/get/data/{id}")
-	@ApiOperation("get detials by id")
-	public ResponseDto<User> getDetails(@PathVariable("id") Long id) {
-		try {
-			log.info("user {}", id);
-			User response = carecrewServiceImpl.getSavedDataById(id);
-			return ResponseDto.success("user details get successfully", response);
-		} catch (Exception errorMessage) {
-			log.error("Exception occurred while getting the data is {}", errorMessage);
-			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
-		}
-	}
+//	@GetMapping("/get/data/{id}")
+//	@ApiOperation("get detials by id")
+//	public ResponseDto<User> getDetails(@PathVariable("id") Long id) {
+//		try {
+//			log.info("user {}", id);
+//			User response = carecrewServiceImpl.getSavedDataById(id);
+//			return ResponseDto.success("user details get successfully", response);
+//		} catch (Exception errorMessage) {
+//			log.error("Exception occurred while getting the data is {}", errorMessage);
+//			return ResponseDto.failure("Exception occurred while getting the data " + errorMessage);
+//		}
+//	}
 
 	@GetMapping("/get/data/")
 	@ApiOperation("get all details")

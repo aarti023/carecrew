@@ -1,6 +1,5 @@
 package com.care.carecrew.model;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -63,7 +62,9 @@ public class User {
 	@DateTimeFormat(iso = ISO.DATE, fallbackPatterns = { "dd.MM.yyyy" })
 	private Date createdAt;
 	
-	private ArrayList<String> service;
+//	private ArrayList<String> service;
+	@Column(name = "service", columnDefinition = "varchar(256)")
+	private String service;
 	
 	@Column(name = "locality_others", columnDefinition = "varchar(100)")
 	private String localityOthers;
